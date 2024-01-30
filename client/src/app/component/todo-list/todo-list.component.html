@@ -1,31 +1,69 @@
-<div class="container">
-  <div class="card frame-header border border-secondary">
-    <div class="row">
-      <h1 class="col-12 text-center text-header">TODO LIST</h1>
+<form [formGroup]="form">
+  <div class="container">
+    <div class="card frame-header border border-secondary">
+      <div class="row">
+        <h1 class="col-12 text-center text-header">TODO LIST</h1>
+      </div>
+    </div>
+    <div class="card frame-input border border-secondary">
+      <div class="row">
+        <div class="col-6 text-end">
+          <label class="p-3" for="name">Task: </label>
+          <input id="name" type="text" formControlName="task" />
+        </div>
+        <div class="col-6 text-start">
+          <label class="p-3" for="name">Date: </label>
+          <input id="name" type="text" formControlName="date" />
+        </div>
+      </div>
+      <div class="row text-center mt-3">
+        <div class="col-12">
+          <button type="button" class="btn btn-primary" (click)="addTodo()">
+            ADD
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="card-body frame-body">
+      <div class="row">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Tasks</th>
+              <th scope="col">Date</th>
+              <th scope="col">Status</th>
+              <th scope="col">Check</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let todoList of todoLists; index as index">
+              <th scope="row">{{ index + 1 }}</th>
+              <td>{{ todoList.task }}</td>
+              <td>{{ todoList.date }}</td>
+              <td>{{ todoList.status }}</td>
+              <td>
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  data-toggle="toggle"
+                  (click)="updateStatus(index)"
+                />
+              </td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="deleteTodo(index)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-  <div class="card-body frame-body">
-    <div class="row">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Tasks</th>
-            <th scope="col">Date</th>
-            <th scope="col">Time</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let todoList of todoLists; index as index">
-            <th scope="row">{{ index + 1 }}</th>
-            <td>{{ todoList.task }}</td>
-            <td>{{ todoList.date }}</td>
-            <td>{{ todoList.time }}</td>
-            <td>{{ todoList.status }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+</form>

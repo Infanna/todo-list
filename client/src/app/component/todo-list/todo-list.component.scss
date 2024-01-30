@@ -9,7 +9,21 @@
 }
 
 .frame-body {
-    margin-top: 50px;
-    background-color: rgba(128, 128, 128, 0.491);
-  }
-  
+  margin-top: 50px;
+  background-color: rgba(128, 128, 128, 0.491);
+}
+
+.frame-input {
+  padding: 20px;
+  margin-top: 30px;
+  background-color: rgba(210, 191, 191, 0.491);
+}
+
+input[type="checkbox"] { 
+  width: 30px; 
+  height: 30px; 
+} 
+
+td{
+  background-color: rgba(128, 128, 128, 0.07)
+}
