@@ -1,10 +1,12 @@
 import { TodoListComponent } from "./todo-list.component";
+import {TodoListService} from "../../service/todo-list.service";
 
 describe("TodoListComponent", () => {
   let component: TodoListComponent;
+  let todoService: TodoListService;
 
   beforeEach(async () => {
-    component = new TodoListComponent();
+    component = new TodoListComponent(todoService);
     component.todoLists = [];
   });
 
@@ -33,11 +35,13 @@ describe("TodoListComponent", () => {
         task: "ตื่นนอน",
         date: "31/01/202 เวลา 09.00 น",
         status: false,
+        time: "",
       },
       {
         task: "นอนต่อ",
         date: "31/01/2023 เวลา 09.30 น",
         status: true,
+        time: "",
       },
     ];
 
@@ -54,11 +58,13 @@ describe("TodoListComponent", () => {
         task: "ตื่นนอน",
         date: "31/01/2023 เวลา 09.00 น.",
         status: false,
+        time: "",
       },
       {
         task: "แปลงฟัน",
         date: "31/01/2023 เวลา 09.15 น.",
         status: false,
+        time: "",
       },
     ];
 

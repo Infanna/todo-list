@@ -5,7 +5,6 @@ import {ITodoList} from "./todo-list.model";
 
 describe('TodoListService', () => {
 
-
     describe('getTodoList', () => {
       let service: TodoListService;
       let httpClient  = {
