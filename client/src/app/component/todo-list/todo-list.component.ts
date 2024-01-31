@@ -1,25 +1,19 @@
-import { Component } from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
-
-interface ITodoList {
-  task: string;
-  date: string;
-  status: boolean;
-}
+import {TodoListService} from "../../service/todo-list.service";
+import {ITodoList} from "../../service/todo-list.model";
 
 @Component({
   selector: "app-todo-list",
   templateUrl: "./todo-list.component.html",
   styleUrls: ["./todo-list.component.scss"],
 })
-export class TodoListComponent {
-  todoLists: ITodoList[] = [
-    {
-      task: "ตื่นนอน",
-      date: "31/01/2023 เวลา 09.00 น.",
-      status: false,
-    },
-  ];
+export class TodoListComponent implements OnInit{
+
+  constructor(private todoListService: TodoListService) {
+  }
+
+  todoLists: ITodoList[] = [];
 
   form = new FormGroup({
     task: new FormControl(),
@@ -27,11 +21,17 @@ export class TodoListComponent {
     status: new FormControl(false),
   });
 
+    ngOnInit(): void {
+        this.todoListService.getTodoList().subscribe((todoList) => {
+        this.todoLists = todoList;
+        });
+    }
   addTodo() {
     this.todoLists.push({
       task: this.form.controls["task"].value || "",
       date: this.form.controls["date"].value || "",
       status: false,
+      time: "",
     });
   }
 

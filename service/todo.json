@@ -1,0 +1,58 @@
+{
+  "todo-list": [
+    {
+      "task": "ตื่นนอน",
+      "date": "31/01/2023",
+      "time": "09.00",
+      "status": false
+    },
+    {
+      "task": "อาบน้ำ",
+      "date": "31/01/2023",
+      "time": "09.30",
+      "status": false
+    },
+    {
+      "task": "กินข้าวเช้า",
+      "date": "31/01/2023",
+      "time": "10.00",
+      "status": false
+    },
+    {
+      "task": "เรียน",
+      "date": "31/01/2023",
+      "time": "10.30",
+      "status": false
+    },
+    {
+      "task": "กินข้าวเที่ยง",
+      "date": "31/01/2023",
+      "time": "11.00",
+      "status": false
+    },
+    {
+      "task": "เรียน",
+      "date": "31/01/2023",
+      "time": "11.30",
+      "status": false
+    },
+    {
+      "task": "กินข้าวเย็น",
+      "date": "31/01/2023",
+      "time": "12.00",
+      "status": false
+    },
+    {
+      "task": "เรียน",
+      "date": "31/01/2023",
+      "time": "12.30",
+      "status": false
+    },
+    {
+      "task": "นอน",
+      "date": "31/01/2023",
+      "time": "13.00",
+      "status": false
+    }
+  ]
+}
