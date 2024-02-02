@@ -1,17 +1,15 @@
-import {Component, OnInit} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
-import {TodoListService} from "../../service/todo-list.service";
-import {ITodoList} from "../../service/todo-list.model";
+import { TodoListService } from "../../service/todo-list.service";
+import { ITodoList } from "../../service/todo-list.model";
 
 @Component({
   selector: "app-todo-list",
   templateUrl: "./todo-list.component.html",
   styleUrls: ["./todo-list.component.scss"],
 })
-export class TodoListComponent implements OnInit{
-
-  constructor(private todoListService: TodoListService) {
-  }
+export class TodoListComponent implements OnInit {
+  constructor(private todoListService: TodoListService) {}
 
   todoLists: ITodoList[] = [];
 
@@ -21,11 +19,12 @@ export class TodoListComponent implements OnInit{
     status: new FormControl(false),
   });
 
-    ngOnInit(): void {
-        this.todoListService.getTodoList().subscribe((todoList) => {
-        this.todoLists = todoList;
-        });
-    }
+  ngOnInit(): void {
+    this.todoListService.getTodoList().subscribe((todoList) => {
+      this.todoLists = todoList;
+    });
+  }
+
   addTodo() {
     this.todoLists.push({
       task: this.form.controls["task"].value || "",
@@ -35,8 +34,8 @@ export class TodoListComponent implements OnInit{
     });
   }
 
-  updateStatus(index: number){
-    this.todoLists[index].status = !this.todoLists[index].status
+  updateStatus(index: number) {
+    this.todoLists[index].status = !this.todoLists[index].status;
   }
 
   deleteTodo(index: number) {

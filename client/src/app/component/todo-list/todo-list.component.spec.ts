@@ -1,9 +1,12 @@
 import { TodoListComponent } from "./todo-list.component";
-import {TodoListService} from "../../service/todo-list.service";
+import { TodoListService } from "../../service/todo-list.service";
+import { of } from "rxjs";
 
 describe("TodoListComponent", () => {
   let component: TodoListComponent;
-  let todoService: TodoListService;
+  let todoService: TodoListService = {
+    getTodoList: jest.fn(),
+  } as unknown as TodoListService;
 
   beforeEach(async () => {
     component = new TodoListComponent(todoService);
@@ -25,6 +28,7 @@ describe("TodoListComponent", () => {
         task: "นอนต่อ",
         date: "31/01/2023 เวลา 09.30 น.",
         status: false,
+        time: "",
       },
     ]);
   });
@@ -75,7 +79,22 @@ describe("TodoListComponent", () => {
         task: "แปลงฟัน",
         date: "31/01/2023 เวลา 09.15 น.",
         status: false,
+        time: "",
       },
+    ]);
+  });
+
+  it("should subscribe to the getTodoList observable and assign the result to todoLists", () => {
+    jest
+      .spyOn(todoService, "getTodoList")
+      .mockReturnValue(
+        of([{ task: "Task 1", date: "2022-01-01", status: false, time: "" }])
+      );
+
+    component.ngOnInit();
+
+    expect(component.todoLists).toEqual([
+      { task: "Task 1", date: "2022-01-01", status: false, time: "" },
     ]);
   });
 });
