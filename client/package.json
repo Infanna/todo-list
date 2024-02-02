@@ -3,16 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json --host=0.0.0.0 -c local",
-    "start:local": "ng serve --proxy-config proxy.local.conf.json --host=0.0.0.0 -c local",
-    "build": "ng build --configuration=production --base-href=/device-sales/",
-    "watch": "ng build --watch --configuration development",
+    "start": "ng serve",
     "test": "jest --verbose",
     "test:watch": "npx jest --watch --runInBand",
-    "test:coverage": "npx jest --coverage",
-    "format": "ng lint",
-    "typeCheck": "tsc --noEmit",
-    "format:fix": "yarn lint --fix && yarn pretty"
+    "test:coverage": "npx jest --coverage"
   },
   "dependencies": {
     "@angular/animations": "^15.2.9",
